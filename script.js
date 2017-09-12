@@ -11,6 +11,8 @@ Has one stack.
 
 
 $(document).ready(function(){
+// validering och klippa av strängen på rätt ställe vid input är inte helt klar
+// får kanske tänka helt nytt.....
 	var testNumLength = function(number) {
         if (number.length < 9) {
             totaldiv.css({"font-size" : "60px"});
@@ -18,9 +20,7 @@ $(document).ready(function(){
 
         if (number.length > 9) {
             totaldiv.css({"font-size" : "39px"});
-            if (number.length > 14) {
-                 totaldiv.text(number.substr(number.length-14,14));
-            };
+            number =  number.slice(0,14);
         };
         if (number.length > 20) {
             number = "";
@@ -70,6 +70,7 @@ $(document).ready(function(){
     $("#equals").click(function(){
         testComma = false;
         // convert the strings to number
+    	testNumLength(number);
         number = parseFloat(number);
         newnumber = parseFloat(newnumber);
     	if (operator === "+"){
@@ -82,16 +83,21 @@ $(document).ready(function(){
             result = (newnumber * number);
     	}
 
+        console.log(result);
         // handle very big numbers and very small numbers
         if (result > 100000000 || result < 0.000001) {
             result = result.toExponential(6);
         }
 
         // convert number to string
+        result = result.toString(10);
+        // test result text string
+        testNumLength(result);
+        console.log(result);
+        // present text string in DOM
     	totaldiv.text(result.toString(10));
             
         // catch error for errors in calculations
-    	testNumLength(result);
             if (result !== "Err" || result !== "Infinity") {
                number = result;
             } else {
