@@ -1,4 +1,5 @@
 /* 
+Author: Anders Rochester
 This is copied from CodeAcademy's exercise (https://www.codecademy.com/courses/web-advanced-en-x6JWW/3/2)
 Mainly for my own studies in javaScript, JQuery
 I have made some changes.
@@ -74,8 +75,10 @@ $(document).ready(function(){
     	} else if (operator === "*"){
             result = (newnumber * number);
     	}
-// en del stora tal går utanför skärmen
-// skall arbeta med en annan validering av längden  på strängen            
+
+
+        // En del stora tal går utanför skärmen
+        // skall arbeta med en annan validering av längden  på strängen            
         if(result > 10000000 || result < 0.0000001){
     	    totaldiv.text(result.toExponential(6));
         } else {
