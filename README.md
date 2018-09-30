@@ -1,6 +1,4 @@
 # calculator-one
-Simple calculator using jQuery
+A simple calculator using jQuery. 
 
-## Project calculators
 
-A project collecting and deploying different calculators.
